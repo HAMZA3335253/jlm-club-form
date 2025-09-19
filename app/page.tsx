@@ -88,7 +88,7 @@ export default function JLMClubForm() {
 
   const handleSubmit = async () => {
     if (formData.motivation.trim()) {
-      const googleFormUrl = "https://docs.google.com/forms/d/e/1FAIpQLSfuYg7Uqnbh_8tEfThek_E3j6IHqYrrbJq2MB3kwEB_RgwNQA/formResponse";
+      const googleFormUrl = "https://script.google.com/macros/s/AKfycbryt0WoVD_Ymz4OcjVxV9qc5DdrUKF-1QrN2og1zXtTKxpXyMy3FnUIvpck2zP6rv-HmCQ/exec";
       
       const dataToSend = new FormData();
       dataToSend.append("entry.865298508", formData.nom); // Nom complet
@@ -102,7 +102,7 @@ export default function JLMClubForm() {
         await fetch(googleFormUrl, {
           method: "POST",
           body: dataToSend,
-          mode: "no-cors", // Important for cross-origin form submissions to Google Forms
+          // Removed mode: "no-cors" as it's no longer needed with Apps Script
         });
         alert("Merci pour votre candidature ! Nous vous contacterons bientôt. Votre candidature a été enregistrée dans Google Forms.");
         console.log("Form submitted to Google Forms:", formData);
